@@ -8,9 +8,9 @@ import Wrapper = Java.Wrapper;
 
 export function hasOwnProperty(obj: any, name: string) {
     try {
-        return obj.hasOwnProperty(name) || name in obj;
+        return (obj.hasOwnProperty(name) || name in obj) && obj[name] !== undefined
     } catch (e) {
-        return obj.hasOwnProperty(name)
+        return obj.hasOwnProperty(name) && obj[name] !== undefined
     }
 }
 
@@ -38,23 +38,11 @@ export function getOwnProperty(obj: any, name: string) {
 }
 
 export  function getHandle(object: Wrapper) {
-    if(hasOwnProperty(object,'$handle')){
-        if(object.$handle != undefined){
-            return object.$handle
-        }
+    if (hasOwnProperty(object, "$handle")) {
+        return object.$handle;
     }
-    if(hasOwnProperty(object,'$h')){
-        if(object.$h != undefined){
-            return object.$h
-        }
+    if (hasOwnProperty(object, "$h")) {
+        return object.$h;
     }
     return null
-    //return object.hashCode()
-}
-
-export function isStatic(obj : any){
-    
-    var modifiers = obj.getModifiers()
-    return  ((modifiers & 0x8) != 0)
-
 }

@@ -20,7 +20,7 @@ Now, you can run it in [objection](https://github.com/sensepost/objection) or in
 ### objection
 
 1. clone this repo to your plugins folder, eg:
-    > git clone https://github.com/hluwa/Wallbreaker ~/.objection/plugins/Wallbreaker
+    > git clone https://github.com/Simp1er/Wallbreaker ~/.objection/plugins/Wallbreaker
 2. start objection with `-P` or `--plugin-folder` your plugins folder, eg:
     > objection -g com.app.name explore -P ~/.objection/plugins
 3. run command:
